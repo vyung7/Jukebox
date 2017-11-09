@@ -29,7 +29,7 @@ p {
 
 a.box:link, a.box:visited {
     
-  width: 93%;
+  width: 50%;
   line-height: 50px;
   
   border: 2px solid white;
@@ -50,6 +50,9 @@ a.box:link, a.box:visited {
 a.box:hover, a.box:active {
     background-color: #283e3e;
 }
+a.icon:hover, a.box:active {
+    color: #283e3e;
+}
 
 a:link, a:visited {
     
@@ -61,10 +64,40 @@ a:link, a:visited {
 }
 
 a:hover, a:active {
-color: white;
-    background-color: #283e3e;
+	color: #283e3e;  
+}
+.nav {
+  overflow: hidden;
+  background-color: #101b1b;
+  position: fixed;
+  bottom: 0;
+  left: -1%;
+  width: 102%;
 }
 
+  a.icon:hover, a.icon:active {
+    text-color: #283e3e;
+}
+.regbox{
+width: 50%;
+  min-width: 200px;
+  max-width: 500px;
+  line-height: 50px;
+  
+  border: 2px solid white;
+  border-radius: 6px;
+  background-color: #141f1f;
+
+  padding: 0px 15px;
+  margin: 3px;
+  
+  font-family: arial;
+  color: white;
+
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;   
+  }
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -74,38 +107,36 @@ color: white;
 <body>
 
 	<h1>JUKEBOX</h1>
+	<center>
 	<h2>Start a Room</h2>
 
-    <a class = "a box" href="#">
+    <div class = "regbox">
     <form action="/action_page.php">
-	Enter a Party Name: 
-		<input type="text"  style = "padding-right: 230px">
-    
-    <i class="fa fa-angle-right" style="font-size: 30px;padding-left: 10px"></i>
-   </form>
-   </a>
+	Party Name: 
+		<input type="text"  style = "width: 70%;">
+     </form>
+   </div>
+   </br>
    
-<a class = "a box" style = "margin-top: 30px" href="#">
+<div class = "regbox" style = "margin-top:30px; ">
     <form action="/action_page.php">
-		Number of Downvotes to Skip:
-		<input type="text" >
-    
-    <i class="fa fa-angle-right" style="font-size: 30px;padding-left: 170px"></i>
-   </form>
-   </a>
+		Number of Votes to Skip:
+		<input type="text" style = "width: 10%;">
+    </form>
+   </div>
+</br>
      
-    <a class = "a box" style = "margin-top: 30px" href="#">Start a New Playlist<i class="fa fa-angle-right" style="font-size: 30px; padding-left:430px;"></i></a>
+    <a class = "a box" style = "margin-top: 30px" href="Currently Playing.html">Start a New Playlist<i class="fa fa-angle-right" style="font-size: 30px; float: right;"></i></a></br>
+    <a class = "a box" href="Playlists.html">From Existing Playlist<i class="fa fa-angle-right" style="font-size: 30px; float: right;"></i></a></br>
+</center>
     
-      
-        
-    <a class = "a box" href="#">From Existing Playlist<i class="fa fa-angle-right" style="font-size: 30px; padding-left:415px;"></i></a>
 
-    
-     <a href="#"><i class="fa fa-home" style="font-size: 50px; padding-top: 100px; padding-left: 150px"></i></a>
-     
-     <a href="#"><i class="fa fa-music" style="font-size: 50px; padding-top: 110px; padding-left: 100px"></i></a>
-     
-     <a href="#"><i class="fa fa-star-o" style="font-size: 50px; padding-top: 110px; padding-left: 100px"></i></a>
+     <div class = "nav"><center>
+	 <a class = "a icon" href="Home.html"><i class="fa fa-home" style="font-size: 50px; padding: 15px;"></i></a>
+
+     <a class = "a icon" href="Playlists.html"><i class="fa fa-music" style="font-size: 50px; padding: 15px;"></i></a>
+
+     <a class = "a icon" href="Currently Playing.html"><i class="fa fa-star-o" style="font-size: 50px; padding: 15px;"></i></a></center></div>
 
 
 

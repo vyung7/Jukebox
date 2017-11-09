@@ -3,113 +3,176 @@
 <head>
 
 <style>
-body {
-    background-color: #141f1f;
-}
+    body {
+        background-color: #141f1f;
+    }
 
-h1 {
-    font-family: arial;
+    h1 {
+        font-family: arial;
+        color: white;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    h2 {
+        font-family: arial;
+        color: white;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    h3 {
+        font-family: arial;
+        color: white;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    p {
+        font-family: arial;
+        font-size: 20px;
+        color: white;
+    }
+
+    a.box:link, a.box:visited {
+
+      width: 93%;
+      line-height: 50px;
+
+      border: 2px solid white;
+      border-radius: 6px;
+      background-color: #141f1f;
+
+      padding: 0px 15px;
+      margin: 3px;
+
+      font-family: arial;
+      color: white;
+
+      text-align: left;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    a.box:hover, a.box:active {
+        background-color: #283e3e;
+    }
+
+    a:link, a:visited {
+      margin: 3px;
+      color: white;
+      text-align: left;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    a:hover, a:active {
     color: white;
-    text-align: center;
-    font-size: 30px;
-}
+        background-color: #283e3e;
+    }
 
-h2 {
-    font-family: arial;
-    color: white;
-    text-align: center;
-    font-size: 20px;
-}
+    .vertical-menu {
+       height: 270px;
+        overflow-y: auto;
+    }
 
-h3 {
-    font-family: arial;
-    color: white;
-    text-align: center;
-    font-size: 18px;
-}
+    .vertical-menu a {
+       background-color:  #141f1f;
 
-p {
-    font-family: arial;
-    font-size: 20px;
-    color: white;
-}
+      width: 88%;
+      line-height: 20px;
 
-a.box:link, a.box:visited {
-    
-  width: 93%;
-  line-height: 50px;
-  
-  border: 2px solid white;
-  border-radius: 6px;
-  background-color: #141f1f;
+      padding: 0px 7px;
+      margin: 3px;
 
-  padding: 0px 15px;
-  margin: 3px;
-  
-  font-family: arial;
-  color: white;
+      border: 2px solid white;
+      border-radius: 6px;
+      background-color: #141f1f;
 
-  text-align: left;
-  text-decoration: none;
-  display: inline-block;    
-}
+      font-family: arial;
+      color: white;
 
-a.box:hover, a.box:active {
-    background-color: #283e3e;
-}
+      text-align: left;
+      text-decoration: none;
+      display: block;
+    }
 
-a:link, a:visited {
-  margin: 3px;
-  color: white;
-  text-align: left;
-  text-decoration: none;
-  display: inline-block;    
-}
+    .vertical-menu a:hover {
+        background-color: #283e3e;
+    }
 
-a:hover, a:active {
-color: white;
-    background-color: #283e3e;
-}
-
-.vertical-menu {
-   height: 270px;
-    overflow-y: auto;
-}
-
-.vertical-menu a {
-   background-color:  #141f1f;
-   
-  width: 88%;
-  line-height: 20px;
-  
-  padding: 0px 7px;
-  margin: 3px;
-  
-  border: 2px solid white;
-  border-radius: 6px;
-  background-color: #141f1f;
-
-  font-family: arial;
-  color: white;
-
-  text-align: left;
-  text-decoration: none;
-  display: block;    
-}
-
-.vertical-menu a:hover {
-    background-color: #283e3e;
-}
-.center {
-    margin: auto;
-    width: 60%;
-}
+    .center {
+        margin: auto;
+        width: 60%;
+    }
 
 </style>
 
 
 
 </style>
+
+<script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
+
+<script>
+    var player;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              var player;
+    function onYouTubeIframeAPIReady() {
+
+        var ctrlq = document.getElementById("youtube-audio");
+        ctrlq.innerHTML = '<img id="youtube-icon" src=""/><div id="youtube-player"></div>';
+        ctrlq.style.cssText = 'width:150px;margin:2em auto;cursor:pointer;cursor:hand;display:none';
+        ctrlq.onclick = toggleAudio;
+
+        player = new YT.Player('youtube-player', {
+        height: '0',
+        width: '0',
+        //  videoId: ctrlq.dataset.video,
+        playerVars: {
+            autoplay: ctrlq.dataset.autoplay,
+            loop: ctrlq.dataset.loop,
+            list: 'PL3146CC3D85FC5B4B',
+            listType: 'playlist',
+        },
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+            }
+        });
+    }
+
+    function togglePlayButton(play) {
+        document.getElementById("youtube-icon").src = play ? "https://i.imgur.com/IDzX9gL.png" : "https://i.imgur.com/quyUPXN.png";
+    }
+
+    //    --Hide play/pause button--
+    //    function togglePlayButton(play) {
+    //        document.getElementById("youtube-icon").src = play ? "" : "";
+    //    }
+
+    function toggleAudio() {
+        if ( player.getPlayerState() == 1 || player.getPlayerState() == 3 ) {
+            player.pauseVideo();
+            togglePlayButton(false);
+        } else {
+            player.playVideo();
+            togglePlayButton(true);
+        }
+    }
+
+    function onPlayerReady(event) {
+        player.setPlaybackQuality("small");
+        document.getElementById("youtube-audio").style.display = "block";
+        togglePlayButton(player.getPlayerState() !== 5);
+    }
+
+    function onPlayerStateChange(event) {
+        if (event.data === 0) {
+            togglePlayButton(false);
+        }
+    }
+
+</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -120,28 +183,30 @@ color: white;
 	<h1>JUKEBOX</h1>
 	<h2>Currently Playing</h2>
 
-<a class = "a box" style = "margin-left: 15%; width: 65%" href="#"><i class="fa fa-pause-circle-o" style="font-size: 30px; margin-right: 10px"></i>Current Song Title<i class="fa fa-close" style="font-size: 30px; padding-left:220px;"></i></a>
+    <div style="display:flex;justify-content:center;align-items:center;">
+        <div style="width:400px;height:300px;">
+            <div data-video="pCdWnY4Dn2w" data-autoplay="1" data-loop="1" id="youtube-audio"></div>
+        </div>
+    </div>
+
+    <a class = "a box" style = "margin-left: 15%; width: 65%" href="#"><i id="play" class="fa fa-pause-circle-o" style="font-size: 30px; margin-right: 10px"></i>Current Song Title<i class="fa fa-close" style="font-size: 30px; padding-left:220px;"></i></a>
 
     <h3>Up Next</h3>
     <div class="center">
-<div class="vertical-menu">
-
-  <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 1<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
-    <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 2<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
-      <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 3<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
-        <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 4<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
-        
-          <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 5<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
+        <div class="vertical-menu">
+            <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 1<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
+            <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 2<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
+            <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 3<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
+            <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 4<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
+            <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 5<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
             <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 6<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
-              <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 7<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
-                <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 8<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
-   <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 5<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
+            <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 7<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
+            <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 8<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a> <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 5<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
             <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 6<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
-              <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 7<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
-                <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 8<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
-  
-  </div>
-</div>
+            <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 7<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
+            <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 8<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
+        </div>
+    </div>
 
     
      <a href="#"><i class="fa fa-home" style=" font-size: 50px; padding-top: 30px; padding-left: 150px"></i></a>

@@ -108,18 +108,14 @@
 
 </style>
 
-
-
-</style>
-
 <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
 
 <script>
-    var player;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              var player;
+    var player;
     function onYouTubeIframeAPIReady() {
 
         var ctrlq = document.getElementById("youtube-audio");
-        ctrlq.innerHTML = '<img id="youtube-icon" src=""/><div id="youtube-player"></div>';
+        ctrlq.innerHTML = '<img id="youtube-icon" style="width:25px; height:25px" src=""/><div id="youtube-player"></div>';
         ctrlq.style.cssText = 'width:150px;margin:2em auto;cursor:pointer;cursor:hand;display:none';
         ctrlq.onclick = toggleAudio;
 
@@ -130,7 +126,7 @@
         playerVars: {
             autoplay: ctrlq.dataset.autoplay,
             loop: ctrlq.dataset.loop,
-            list: 'PL3146CC3D85FC5B4B',
+            list: 'PLyjgHc47unfT3BIZo5uEt2a-2TWKy54sU',
             listType: 'playlist',
         },
         events: {
@@ -161,7 +157,7 @@
 
     function onPlayerReady(event) {
         player.setPlaybackQuality("small");
-        document.getElementById("youtube-audio").style.display = "block";
+        document.getElementById("youtube-audio").style.display = "inline-block";
         togglePlayButton(player.getPlayerState() !== 5);
     }
 
@@ -183,37 +179,38 @@
 	<h1>JUKEBOX</h1>
 	<h2>Currently Playing</h2>
 
-    <div style="display:flex;justify-content:center;align-items:center;">
-        <div style="width:400px;height:300px;">
-            <div data-video="pCdWnY4Dn2w" data-autoplay="1" data-loop="1" id="youtube-audio"></div>
-        </div>
-    </div>
-
-    <a class = "a box" style = "margin-left: 15%; width: 65%" href="#"><i id="play" class="fa fa-pause-circle-o" style="font-size: 30px; margin-right: 10px"></i>Current Song Title<i class="fa fa-close" style="font-size: 30px; padding-left:220px;"></i></a>
+    <a class = "a box" style = "margin-left: 15%; width: 65%;" href="#">
+     <!--  <i id="play" class="fa fa-pause-circle-o" style="font-size: 30px; margin-right: 10px"></i> -->
+      <div style="width:25px;height:25px;">
+        <div data-video="pCdWnY4Dn2w" data-autoplay="1" data-loop="1" id="youtube-audio"></div>
+      </div>
+      Current Song Title<i class="fa fa-close" style="font-size: 30px; padding-left:650px;"></i>
+    </a>
 
     <h3>Up Next</h3>
     <div class="center">
-        <div class="vertical-menu">
-            <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 1<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
-            <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 2<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
-            <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 3<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
-            <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 4<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
-            <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 5<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
-            <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 6<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
-            <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 7<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
-            <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 8<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a> <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 5<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
-            <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 6<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
-            <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 7<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
-            <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 8<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
-        </div>
+      <div class="vertical-menu">
+        <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 1<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
+        <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 2<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
+        <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 3<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
+        <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 4<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
+        <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 5<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
+        <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 6<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
+        <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 7<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
+        <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 8<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
+        <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 5<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
+        <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 6<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
+        <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 7<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
+        <a href="#"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 8<i class="fa fa-close" style="font-size: 15px;margin-left:75%"></i></a>
+      </div>  
     </div>
 
     
-     <a href="#"><i class="fa fa-home" style=" font-size: 50px; padding-top: 30px; padding-left: 150px"></i></a>
+    <a href="#"><i class="fa fa-home" style=" font-size: 50px; padding-top: 30px; padding-left: 150px"></i></a>
      
-     <a href="#"><i class="fa fa-music" style="font-size: 50px; padding-top: 30px; padding-left: 100px"></i></a>
+    <a href="#"><i class="fa fa-music" style="font-size: 50px; padding-top: 30px; padding-left: 100px"></i></a>
      
-     <a href="#"><i class="fa fa-star-o" style=" font-size: 50px; padding-top: 30px; padding-left: 100px"></i></a>
+    <a href="#"><i class="fa fa-star-o" style=" font-size: 50px; padding-top: 30px; padding-left: 100px"></i></a>
 
 
 </body>

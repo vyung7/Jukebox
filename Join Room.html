@@ -1,82 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-<style>
-body {
-    background-color: #141f1f;
-}
-
-h1 {
-    font-family: arial;
-    color: white;
-    text-align: center;
-    font-size: 30px;
-}
-
-h2 {
-    font-family: arial;
-    color: white;
-    text-align: center;
-    font-size: 20px;
-}
-
-p {
-    font-family: arial;
-    font-size: 20px;
-    color: white;
-}
-
-a.box:link, a.box:visited {
-    
-  width: 50%;
-  line-height: 50px;
-  
-  border: 2px solid white;
-  border-radius: 6px;
-  background-color: #141f1f;
-
-  padding: 0px 15px;
-  margin: 3px;
-  
-  font-family: arial;
-  color: white;
-
-  text-align: left;
-  text-decoration: none;
-  display: inline-block;    
-}
-
-a.box:hover, a.box:active {
-    background-color: #283e3e;
-}
-a.icon:hover, a.box:active {
-    color: #283e3e;
-}
-
-a:link, a:visited {
-    
-  margin: 3px;
-  color: white;
-  text-align: left;
-  text-decoration: none;
-  display: inline-block;    
-}
-
-a:hover, a:active {
-	color: #283e3e;  
-}
-.nav {
-  overflow: hidden;
-  background-color: #101b1b;
-  position: fixed;
-  bottom: 0;
-  left: -1%;
-  width: 102%;
-}
-</style>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel = "stylesheet" type = "text/css" href = "style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 </head>
@@ -84,21 +11,20 @@ a:hover, a:active {
 
 	<h1>JUKEBOX</h1>
 	<h2>Join a Room</h2>
-<center>
-    <a class = "a box" href="Currently Playing.html">
-    <form action="/action_page.php">
-		<input type="text" style = "width: 90%;" value="Enter Room Code">
-    <i class="fa fa-angle-right" style="font-size: 30px; float: right;"></i>
-	</form>
-   </a>
-</center>
+	<center>
+		<a class = "a hBox" href="Currently Playing.html">
+			<form action="/action_page.php">
+				<input type="text" style = "width: 90%;" value="Enter Room Code">
+				<i class="fa fa-angle-right" style="font-size: 30px; float: right;"></i>
+			</form>
+	   </a>
+	</center>
  
      <div class = "nav"><center>
-	 <a class = "a icon" href="Home.html"><i class="fa fa-home" style="font-size: 50px; padding: 15px;"></i></a>
-
-     <a class = "a icon" href="Playlists.html"><i class="fa fa-music" style="font-size: 50px; padding: 15px;"></i></a>
-
-     <a class = "a icon" href="Currently Playing.html"><i class="fa fa-star-o" style="font-size: 50px; padding: 15px;"></i></a></center></div>
+		 <a class = "a icon" href="Home.html"><i class="fa fa-home" style="font-size: 50px; padding: 15px;"></i></a>
+		 <a class = "a icon" href="Playlists.html"><i class="fa fa-music" style="font-size: 50px; padding: 15px;"></i></a>
+		 <a class = "a icon" href="Currently Playing.html"><i class="fa fa-volume-up"  style="font-size: 50px; padding: 15px;"></i></a>
+	 </center> </div>
 
 
 </body>

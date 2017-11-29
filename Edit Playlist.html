@@ -60,6 +60,13 @@
 				parent.removeChild(child);
 				parent.removeChild(iconChild);
 			}
+
+			function removePlaylist() {
+				if (confirm("Are you sure you want to delete this playlist?")) {
+					window.location.href = "Playlists.html"
+					//will also later remove all instances of playlist
+				} 
+			}
 		</script>
 	</head>
 
@@ -74,7 +81,7 @@
 				</form>
 			</div>
 			<!-- Update onclick function -->
-			<a href="#"><i class="fa fa-trash-o" onclick="" style="font-size: 35px; vertical-align: middle;"></i></a>
+			<a href="#"><i class="fa fa-trash-o" onclick=removePlaylist() style="font-size: 35px; vertical-align: middle;"></i></a>
 		</center>
 		
 		<center style="font-family: arial;color: white;font-size=20px;">URL:  

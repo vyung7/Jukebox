@@ -67,7 +67,7 @@
         	var songCount =0;
         	function addNewSong() { 
                 var song = prompt("URL", "Enter YouTube Link");
-                if (song != null || song != "") {
+                if (song != null && song != "") {
                     songCount = songCount +1;
                     var currCount = songCount;
                     var box = document.createElement('div');

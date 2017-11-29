@@ -1,151 +1,148 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link rel = "stylesheet" type = "text/css" href = "style.css">
-<script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script>
-    var player;
-    function onYouTubeIframeAPIReady() {
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        var ctrlq = document.getElementById("youtube-audio");
-        ctrlq.innerHTML = '<img id="youtube-icon"  style = "height:20px;" align="middle" src=""/><div id="youtube-player"></div>';
-        ctrlq.style.cssText = 'cursor:pointer;cursor:hand;display:none';
-        ctrlq.onclick = toggleAudio;
+        <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
+        <script>
+            var player;
+            function onYouTubeIframeAPIReady() {
 
-        player = new YT.Player('youtube-player', {
-        height: '0',
-        width: '0',
-        //  videoId: ctrlq.dataset.video,
-        playerVars: {
-            autoplay: ctrlq.dataset.autoplay,
-            loop: ctrlq.dataset.loop,
-            list: 'PL6Ri1UOk51t6SCUALmklRE_7hvtyoOZJM',
-            listType: 'playlist',
-        },
-        events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
+                var ctrlq = document.getElementById("youtube-audio");
+                ctrlq.innerHTML = '<img id="youtube-icon"  style = "height:20px;" align="middle" src=""/><div id="youtube-player"></div>';
+                ctrlq.style.cssText = 'cursor:pointer;cursor:hand;display:none';
+                ctrlq.onclick = toggleAudio;
+
+                player = new YT.Player('youtube-player', {
+                height: '0',
+                width: '0',
+                //  videoId: ctrlq.dataset.video,
+                playerVars: {
+                    autoplay: ctrlq.dataset.autoplay,
+                    loop: ctrlq.dataset.loop,
+                    list: 'PL6Ri1UOk51t6SCUALmklRE_7hvtyoOZJM',
+                    listType: 'playlist',
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                    }
+                });
             }
-        });
-    }
 
-    function togglePlayButton(play) {
-        document.getElementById("youtube-icon").src = play ? "pause-circular-button.png" : "play-button.png";
-    }
+            function togglePlayButton(play) {
+                document.getElementById("youtube-icon").src = play ? "pause-circular-button.png" : "play-button.png";
+            }
 
-    //    --Hide play/pause button--
-    //    function togglePlayButton(play) {
-    //        document.getElementById("youtube-icon").src = play ? "" : "";
-    //    }
+            //    --Hide play/pause button--
+            //    function togglePlayButton(play) {
+            //        document.getElementById("youtube-icon").src = play ? "" : "";
+            //    }
 
-    function toggleAudio() {
-        if ( player.getPlayerState() == 1 || player.getPlayerState() == 3 ) {
-            player.pauseVideo();
-            togglePlayButton(false);
-        } else {
-            player.playVideo();
-            togglePlayButton(true);
-        }
-    }
+            function toggleAudio() {
+                if ( player.getPlayerState() == 1 || player.getPlayerState() == 3 ) {
+                    player.pauseVideo();
+                    togglePlayButton(false);
+                } else {
+                    player.playVideo();
+                    togglePlayButton(true);
+                }
+            }
 
-    function onPlayerReady(event) {
-        player.setPlaybackQuality("small");
-        document.getElementById("youtube-audio").style.display = "inline-block";
-        togglePlayButton(player.getPlayerState() !== 5);
-    }
+            function onPlayerReady(event) {
+                player.setPlaybackQuality("small");
+                document.getElementById("youtube-audio").style.display = "inline-block";
+                togglePlayButton(player.getPlayerState() !== 5);
+            }
 
-    function onPlayerStateChange(event) {
-        if (event.data === 0) {
-            togglePlayButton(false);
-        }
-    }
+            function onPlayerStateChange(event) {
+                if (event.data === 0) {
+                    togglePlayButton(false);
+                }
+            }
 
-	var songCount =0;
-	function addNewSong() { 
-		songCount = songCount +1;
-	   var currCount = songCount;
-	   var box = document.createElement('div');
-		box.className = "regbox";
-		
-	   var heartIcon = document.createElement('i');
-		heartIcon.className ="fa fa-heart-o";
-		heartIcon.style="color: white; font-size: 10px; margin-right:7px";
-		heartIcon.id = "icon" + currCount;
-		heartIcon.onclick = function() {toggleColor(heartIcon, "pink")};
+        	var songCount =0;
+        	function addNewSong() { 
+        		songCount = songCount +1;
+        	   var currCount = songCount;
+        	   var box = document.createElement('div');
+        		box.className = "regbox";
+        		
+        	   var heartIcon = document.createElement('i');
+        		heartIcon.className ="fa fa-heart-o";
+        		heartIcon.style="color: white; font-size: 10px; margin-right:7px";
+        		heartIcon.id = "icon" + currCount;
+        		heartIcon.onclick = function() {toggleColor(heartIcon, "pink")};
 
-		box.appendChild(heartIcon);
+        		box.appendChild(heartIcon);
 
-		var node = document.createTextNode("Song" + currCount);
-		box.appendChild(node);
-		box.id = "song" + currCount;	
-		
-		var downIcon = document.createElement('i');
-		downIcon.className="fa fa-angle-double-down";
-		downIcon.style="color: white; font-size: 20px; float:right; padding-left: 20px;";
-		downIcon.id = "down" + currCount;
-		downIcon.onclick = function() {toggleColor(downIcon, "red")};
-		box.appendChild(downIcon);
-		
-		var upIcon = document.createElement('i');
-		upIcon.className="fa fa-angle-double-up";
-		upIcon.style="color: white; font-size: 20px; float: right;";
-		upIcon.id = "up" + currCount;
-		upIcon.onclick = function() {toggleColor(upIcon, "green")};
-		box.appendChild(upIcon);
-	
-		var element = document.getElementById("addNew");
-		element.appendChild(box);
-	}
-		
-	function toggleColor(iconName, color) { 
-		if (iconName.style.color === "white"){
-			iconName.style.color = color;
-		}
-		else{
-			iconName.style.color = "white";
-		}
-	}
-	
-</script>
+        		var node = document.createTextNode("Song" + currCount);
+        		box.appendChild(node);
+        		box.id = "song" + currCount;	
+        		
+        		var downIcon = document.createElement('i');
+        		downIcon.className="fa fa-angle-double-down";
+        		downIcon.style="color: white; font-size: 20px; float:right; padding-left: 20px;";
+        		downIcon.id = "down" + currCount;
+        		downIcon.onclick = function() {toggleColor(downIcon, "red")};
+        		box.appendChild(downIcon);
+        		
+        		var upIcon = document.createElement('i');
+        		upIcon.className="fa fa-angle-double-up";
+        		upIcon.style="color: white; font-size: 20px; float: right;";
+        		upIcon.id = "up" + currCount;
+        		upIcon.onclick = function() {toggleColor(upIcon, "green")};
+        		box.appendChild(upIcon);
+        	
+        		var element = document.getElementById("addNew");
+        		element.appendChild(box);
+        	}
+        		
+        	function toggleColor(iconName, color) { 
+        		if (iconName.style.color === "white"){
+        			iconName.style.color = color;
+        		}
+        		else{
+        			iconName.style.color = "white";
+        		}
+        	}
+        </script>
+    </head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+    <body>
+    	<h1>JUKEBOX</h1>
+    	<h2>Currently Playing</h2>
+    	
+    	<center>
+            <div class="regbox" style="vertical-align:text-bottom; width: 65%; height:30px;">
+             <!--  <i id="play" class="fa fa-pause-circle-o" style="font-size: 30px; margin-right: 10px"></i> -->
+                <div data-video="pCdWnY4Dn2w" data-autoplay="1" data-loop="1" id="youtube-audio"></div>
 
-</head>
-<body>
+              <span style="vertical-align: bottom">Mic Drop</span><i class="fa fa-close" style="float: right; font-size: 30px;"></i>
+            </div>
+    	</center>
 
-	<h1>JUKEBOX</h1>
-	<h2>Currently Playing</h2>
-	
-	<center>
-    <div class = "regbox"  style = "vertical-align:text-bottom; width: 65%;height:30px">
-     <!--  <i id="play" class="fa fa-pause-circle-o" style="font-size: 30px; margin-right: 10px"></i> -->
-        <div data-video="pCdWnY4Dn2w"  data-autoplay="1" data-loop="1" id="youtube-audio"></div>
-
-      <span style = "vertical-align: bottom">Mic Drop</span><i class="fa fa-close" style="float: right; font-size: 30px; "></i>
-    </div>
-	</center>
-
-    <b style = "text-align: center; padding-left: 21%;padding-right: 40%;">Up Next</b>
-	<a href="#"><i class="fa fa-plus-square-o" onclick = addNewSong() style="margin-top: 30px; font-size: 40px;  "></i></a>
-	
-    <div class="center">
-      <div class="vertical-menu" id = "addNew">
-        <!--<div class = "regbox"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 1<i class="fa fa-angle-double-down" style="font-size: 20px; float:right; padding-left: 20px;"></i><i class="fa fa-angle-double-up" style="font-size: 20px; float: right;"></i></div></br>
-        -->
-		</div>  
-    </div>
-	</br>
-    <h2> Room Code: XXXXXX </h2>
-	
-     <div class = "nav"><center>
-		 <a class = "a icon" href="Home.html"><i class="fa fa-home" style="font-size: 50px; padding: 15px;"></i></a>
-		 <a class = "a icon" href="Playlists.html"><i class="fa fa-music" style="font-size: 50px; padding: 15px;"></i></a>
-		 <a class = "a icon" href="Currently Playing.html"><i class="fa fa-volume-up"  style="color:#7cffb9; font-size: 50px; padding: 15px;"></i></a>
-	 </center></div>
-
-
-</body>
+        <b style="text-align: center; padding-left: 21%;padding-right: 40%;">Up Next</b>
+    	<a href="#"><i class="fa fa-plus-square-o" onclick=addNewSong() style="margin-top: 30px; font-size: 40px;"></i></a>
+    	
+        <div class="center">
+            <div class="vertical-menu" id="addNew">
+            <!--<div class = "regbox"><i class="fa fa-heart-o" style="font-size: 10px; margin-right:7px"></i>Song 1<i class="fa fa-angle-double-down" style="font-size: 20px; float:right; padding-left: 20px;"></i><i class="fa fa-angle-double-up" style="font-size: 20px; float: right;"></i></div></br>
+            -->
+    		</div>  
+        </div>
+    	</br>
+        <h2> Room Code: XXXXXX </h2>
+    	
+        <div class="nav">
+            <center>
+                <a class="a icon" href="Home.html"><i class="fa fa-home" style="font-size: 50px; padding: 15px;"></i></a>
+                <a class="a icon" href="Playlists.html"><i class="fa fa-music" style="font-size: 50px; padding: 15px;"></i></a>
+                <a class="a icon" href="Currently Playing.html"><i class="fa fa-volume-up" style="font-size: 50px; padding: 15px;"></i></a>
+            </center>
+        </div>
+    </body>
 </html>

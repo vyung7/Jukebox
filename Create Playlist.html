@@ -4,18 +4,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel = "stylesheet" type = "text/css" href = "style.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
 
 		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-
 		<script>
 			$(function() {
 				$( "#sortable-1" ).sortable();
 				$( "#addNew" ).sortable();
 			});
 		</script>
-		
 		<script>
 			var songCount = 0;
 			function addNewSong() { 
@@ -56,48 +54,46 @@
 				parent.removeChild(iconChild);
 			}
 		</script>
-
 	</head>
 
 	<body>
-
 		<h1>JUKEBOX</h1>
 		<h2>Create Playlist</h2>
 
 		<center style="font-family: arial;color: white;font-size=20px;">Name:
-			<div class = "regbox" style = "line-height: 50px; width:38%;">
+			<div class="regbox" style="line-height: 50px; width:38%;">
 				<form action="/action_page.php"> 
-					<input type="text" style = "width: 98%;" value="Enter Playlist Name">
+					<input type="text" style="width: 98%;" value="Enter Playlist Name">
 				</form>
 			</div>
 			<!-- Update onclick function -->
-			<a href="#"><i class="fa fa-trash-o" onclick = "" style="font-size: 35px; vertical-align: middle;"></i></a>
+			<a href="#"><i class="fa fa-trash-o" onclick="" style="font-size: 35px; vertical-align: middle;"></i></a>
 		</center>
 		
 		<center style="font-family: arial;color: white;font-size=20px;">URL:  
-			<div class = "regbox" style = "line-height: 50px;width:40%;">
+			<div class="regbox" style="line-height: 50px;width:40%;">
 				<form action="/action_page.php"> 
-					<input type="text" style = "width: 98%;" value="Enter YouTube Link">
+					<input type="text" style="width: 98%;" value="Enter YouTube Link">
 				</form>
 			</div>
-			<a href="#"><i class="fa fa-plus-square-o" onclick = "addNewSong()" style="font-size: 35px; vertical-align: middle;"></i></a>
+			<a href="#"><i class="fa fa-plus-square-o" onclick="addNewSong()" style="font-size: 35px; vertical-align: middle;"></i></a>
 		</center>
 
 		<center class="center-container" style="padding-top: 10px; padding-bottom: 10px;">
-			<ul id = "addNew">     
+			<ul id="addNew">     
 			</ul> 
 		</center>
 
-		<div class = "nav">
-			<center style = "background-color: #141f1f; padding-bottom: 10px; padding-top: 10px;">
+		<div class="nav">
+			<center style="background-color: #141f1f; padding-bottom: 10px; padding-top: 10px;">
 				<a href="Playlists.html"><i class="fa fa-check-circle-o" style="font-size: 40px; "></i></a>
 				<a href="Playlists.html"><i class="fa fa-times-circle-o" style="font-size: 40px; padding-left:20px"></i></a>	
 			</center>
 
 			<center>
-				<a class = "a icon" href="Home.html"><i class="fa fa-home" style="font-size: 50px; padding: 15px;"></i></a>
-				<a class = "a icon" href="Playlists.html"><i class="fa fa-music" style="font-size: 50px; padding: 15px;"></i></a>
-				<a class = "a icon" href="Currently Playing.html"><i class="fa fa-volume-up"  style="  font-size: 50px; padding: 15px;"></i></a>
+				<a class="a icon" href="Home.html"><i class="fa fa-home" style="font-size: 50px; padding: 15px;"></i></a>
+				<a class="a icon" href="Playlists.html"><i class="fa fa-music" style="font-size: 50px; padding: 15px;"></i></a>
+				<a class="a icon" href="Currently Playing.html"><i class="fa fa-volume-up" style="font-size: 50px; padding: 15px;"></i></a>
 			</center>
 		</div>
 	</body>

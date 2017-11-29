@@ -80,7 +80,6 @@ a.hBox:hover, a.box:active {
 }
 
 a.box:link, a.box:visited {
-
   width: 93%;
   line-height: 50px;
 
@@ -146,7 +145,7 @@ a:hover, a:active {
 }
 
 .hRegbox{
-width: 50%;
+  width: 50%;
   min-width: 200px;
   max-width: 500px;
   line-height: 50px;
@@ -168,13 +167,12 @@ width: 50%;
   
   
 .vertical-menu {
-   height: 230px;
+  height: 230px;
 	overflow-y: auto;
 }
 
 .vertical-menu a {
-   background-color:  #141f1f;
-
+  background-color:  #141f1f;
   width: 88%;
   line-height: 20px;
 

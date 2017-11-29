@@ -4,15 +4,23 @@
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel = "stylesheet" type = "text/css" href = "style.css">
-
+<link rel="stylesheet" type = "text/css" href = "style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+<link rel = "stylesheet" href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css">
 
-</head>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<script>
+ $(function() {
+    $( "#sortable-1" ).sortable();
+ });
+</script>
+
 
 </head>
 <body>
-
 	<h1>JUKEBOX</h1>
 	<h2>Playlist A</h2>
 
@@ -22,15 +30,22 @@
      
 	<center>
 	 
-	<a href="#"><i class="fa fa-reorder" style="font-size: 30px;"></i></a>
-    <div class = "hRegbox">Song A</div>
-	</br>
-	<a href="#"><i class="fa fa-reorder" style="font-size: 30px;"></i></a>
-    <div class = "hRegbox">	Song B	</div>
-	</br>
-	<a href="#"><i class="fa fa-reorder" style="font-size: 30px;"></i></a>
-	<div class = "hRegbox">	Song C </div>
-	
+
+	<ul id = "sortable-1">
+    	<li class = "default">
+	     	<a href="#"><i class="fa fa-reorder" style="font-size: 30px;"></i></a>
+	     	<div class = "hRegbox">Song A</div>
+	    </li>
+	    <li class = "default">
+	     	<a href="#"><i class="fa fa-reorder" style="font-size: 30px;"></i></a>
+	     	<div class = "hRegbox">Song B</div>
+	    </li>
+	    <li class = "default">
+	     	<a href="#"><i class="fa fa-reorder" style="font-size: 30px;"></i></a>
+	     	<div class = "hRegbox">Song C</div>
+	    </li>
+	</ul>
+
     </center>
      <div class = "nav"><center>
 		 <a class = "a icon" href="Home.html"><i class="fa fa-home" style="font-size: 50px; padding: 15px;"></i></a>

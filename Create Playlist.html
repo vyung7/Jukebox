@@ -18,8 +18,8 @@
 	var songCount = 0;
 	function addNewSong() { 
 		songCount = songCount +1;
-	   var currCount = songCount;
-	   var icon = document.createElement('i');
+	    var currCount = songCount;
+	    var icon = document.createElement('i');
 		icon.className ="fa fa-reorder";
 		icon.style = "color:white; font-size: 18px; padding-right:5px";
 		icon.id = "icon" + currCount;
@@ -49,7 +49,7 @@
 		var child = document.getElementById("song"+ songCount);
 		var iconChild = document.getElementById("icon"+ songCount);
 		parent.removeChild(child);
-					parent.removeChild(iconChild);
+		parent.removeChild(iconChild);
 	}
 	</script>
 
@@ -83,11 +83,7 @@
 </left>
 	
     <div class="center">
-      <div id = "addNew" class="vertical-menu" style = "height: 230px;margin-top:30px;" >
-	  <!--
-       <i class="fa fa-reorder" style="color:white; font-size: 18px; "></i> 
-	   <div class = "regbox">Song 1<i class="fa fa-close" style="font-size: 15px; float: right;"></i></div></br>
-		-->      
+      <div id = "addNew" class="vertical-menu" style = "height: 230px;margin-top:30px;">     
 	  </div>  
     </div>
 	

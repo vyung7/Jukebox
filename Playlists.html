@@ -1,42 +1,62 @@
 <!DOCTYPE html>
 <html>
-<head>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel = "stylesheet" type = "text/css" href = "style.css">
+			function removePlaylistPopup(playlistName) {
+				if (confirm("Are you sure you want to delete this playlist?")) {
+					removePlaylist(playlistName);
+					//will also later remove all instances of playlist
+				} 
+			}
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			function removePlaylist(name) {
+				var parent = document.getElementById("container");
 
-</head>
+				var child = document.getElementById("Playlist"+ name);
+				//var iconChild = document.getElementById("Icon"+name);
 
-</head>
-<body>
+				parent.removeChild(child);
+				//parent.removeChild(iconChild);
+			}
+		</script>
+	</head>
 
-	<h1>JUKEBOX</h1>
-	<h2 >Playlists</h2>
+	<body>
+		<h1>JUKEBOX</h1>
+		<h2>Playlists</h2>
 
-	<b style = "padding-left: 65%; "> </b>
-	<a href="Create Playlist.html"><i class="fa fa-plus-square-o"  style="font-size: 40px; "></i></a>
-	<a href="#"><i class="fa fa-edit" style="font-size: 40px;"></i></a>
+		<center>
+			<div id="container">
+			
+			<div id = "PlaylistA">
+				<a href="#"><i  class="fa fa-trash-o" onclick="removePlaylistPopup('A')" style="font-size: 25px; vertical-align: middle;"></i></a>
+			
+				<a class="a hBox"href="Edit Playlist.html">Playlist A<i class="fa fa-angle-right" style="font-size: 30px; float: right;"></i></a>
+		    </div>
 
-	
-	<center>
-	
-	<a class = "a hBox" href="Sample Playlist.html">Playlist A<i class="fa fa-angle-right" style="font-size: 30px; float: right;"></i></a></br>
-    <a class = "a hBox" href="Sample Playlist.html">Playlist B<i class="fa fa-angle-right" style="font-size: 30px; float: right;"></i></a></br>
-    </center>
-	<center>
-	<a class = "a hBox" href="Sample Playlist.html" style = "margin-top:30px">Liked Songs<i class="fa fa-angle-right" style="font-size: 30px; float: right;"></i></a></br>
+		    <div id = "PlaylistB">
+		    	<a href="#"><i class="fa fa-trash-o" onclick="removePlaylistPopup('B')" style="font-size: 25px; vertical-align: middle;"></i></a>
+		    	<a class="a hBox" href="Edit Playlist.html">Playlist B<i class="fa fa-angle-right" style="font-size: 30px; float: right;"></i></a>
+			</div>
 
-	</center>
+		</div>
+		
+		<text style = "margin-left: 55%"><a href="Create Playlist.html"><i class="fa fa-plus-square-o" onclick="addNewPlaylist()" style="font-size: 35px; vertical-align: middle;"></i></a></text>
 
-     <div class = "nav"><center>
-	 <a class = "a icon" href="Home.html"><i class="fa fa-home" style="font-size: 50px; padding: 15px;"></i></a>
-     <a class = "a icon" href="Playlists.html"><i class="fa fa-music" style="color:#7cffb9; font-size: 50px; padding: 15px;"></i></a>
-     <a class = "a icon" href="Currently Playing.html"><i class="fa fa-volume-up"  style="font-size: 50px; padding: 15px;"></i></a></center></div>
+			<a class="a hBox" href="Edit Playlist.html" style="margin-top:30px; margin-left: 5%">Liked Songs<i class="fa fa-angle-right" style="font-size: 30px; float: right;"></i></a>
+		</center>
 
-
-
-
-</body>
+	    <div class="nav">
+			<center>
+				<a class="a icon" href="Home.html"><i class="fa fa-home" style="font-size: 50px; padding: 15px;"></i></a>
+				<a class="a icon" href="Playlists.html"><i class="fa fa-music" style="font-size: 50px; padding: 15px; color: #4656ea"></i></a>
+				<a class="a icon" href="Currently Playing.html"><i class="fa fa-volume-up" style="font-size: 50px; padding: 15px;"></i></a>
+			</center>
+		</div>
+	</body>
 </html>

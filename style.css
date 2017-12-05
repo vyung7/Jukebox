@@ -99,7 +99,7 @@ a.box:link, a.box:visited {
 }
 
 a.icon:hover, a.box:active {
-    color: #283e3e;
+    color: #8ba0a0;
 }
 
 a:link, a:visited {
@@ -112,7 +112,7 @@ a:link, a:visited {
 }
 
 a:hover, a:active {
-	color: #283e3e;  
+	color: #8ba0a0;  
 }
 
 .nav {
@@ -125,9 +125,10 @@ a:hover, a:active {
 }
 
 .regbox{
+  height: 50px;
   width: 87%;
   max-width: 500px;
-  line-height: 20px;
+  line-height: 50px;
   
   border: 2px solid white;
   border-radius: 6px;
@@ -141,7 +142,15 @@ a:hover, a:active {
 
   text-align: left;
   text-decoration: none;
-  display: inline-block;   
+  display: inline-block;
+}
+
+.regbox i{
+  line-height: 50px;
+}
+
+.regbox i::before{
+  font-size: 30px;
 }
 
 .hRegbox{
@@ -165,6 +174,26 @@ a:hover, a:active {
   display: inline-block;   
  }
   
+ input, select {
+  height: 50px;
+  width: 87%;
+  max-width: 500px;
+  line-height: 50px;
+  
+  border: 2px solid white;
+  border-radius: 6px;
+  background-color: #141f1f;
+
+  padding: 0px 15px;
+  margin: 3px;
+  
+  font-family: arial;
+  color: white;
+
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+} 
   
 .vertical-menu {
   height: 230px;
@@ -173,6 +202,7 @@ a:hover, a:active {
 
 .vertical-menu a {
   background-color:  #141f1f;
+
   width: 88%;
   line-height: 20px;
 
@@ -199,3 +229,56 @@ a:hover, a:active {
 	margin: auto;
 	width: 60%;
 }
+
+.glyphicon-move {
+  cursor: move;
+  cursor: -webkit-grabbing;
+}
+
+#sortable-1 {
+  list-style-type: none;
+  margin: 0; 
+  padding: 0;
+  width: 100%;
+}
+
+#sortable-1 li {
+  margin: 0 3px 3px 3px;
+  /*padding: 0.4em; 
+  padding-left: 1.5em;*/
+  font-size: 20px;
+  height: 50px;
+}
+
+#addNew {
+  list-style-type: none;
+  margin: 0; 
+  padding: 0;
+  width: 100%;
+  min-height: 200px;
+  max-height: 500px;
+  overflow-y: scroll; 
+}
+
+#addNew li {
+  margin: 0 3px 3px 3px;
+  /*padding: 0.4em; 
+  padding-left: 1.5em;*/
+  font-size: 20px;
+  height: 50px;
+}
+
+.default {
+  background: none;
+  border: none;
+}
+
+.center-container {
+  text-align: center;
+}
+
+.center-container ul {
+  height: 400px;
+  display: inline-block;
+}
+

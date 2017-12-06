@@ -35,7 +35,9 @@
 				var listItem = document.createElement('li');
 
 				box.className = "regbox";
-				var node = document.createTextNode("Song" + currCount);
+				box.style = "font-size: 16px;";
+				var node = document.createTextNode("Song Title " + currCount+" - Artist Name");
+
 				box.appendChild(node);
 				listItem.id = "song" + currCount			
 				var close = document.createElement('i');
@@ -74,23 +76,25 @@
 		<h1>JUKEBOX</h1>
 		<h2>Edit Playlist</h2>
 
-		<center style="font-family: arial;color: white;font-size=20px;">Name:
-			<div class="regbox" style="line-height: 50px; width:38%;">
+		<center style="font-family: arial;color: white;font-size=20px;">
 				<form action="/action_page.php"> 
-					<input type="text" style="width: 98%;" value="Enter Playlist Name">
+					<label> Name:</label>
+					<input type="text" style="font-size: 16px; line-height: 50px; width:38%; margin-right: 5%" value="Playlist A" placeholder="Enter new name...">
+					<!--
+					<a href="#"><i class="fa fa-trash-o" onclick="removePlaylist()" style="font-size: 35px; vertical-align: middle;"></i></a>
+				-->
 				</form>
-			</div>
-			<!-- Update onclick function -->
-			<a href="#"><i class="fa fa-trash-o" onclick=removePlaylist() style="font-size: 35px; vertical-align: middle;"></i></a>
 		</center>
 		
-		<center style="font-family: arial;color: white;font-size=20px;">URL:  
-			<div class="regbox" style="line-height: 50px;width:40%;">
+		<center style="font-family: arial;color: white;font-size=20px;">  
+			<div>
 				<form action="/action_page.php"> 
-					<input type="text" style="width: 98%;" value="Enter YouTube Link">
+					<label> URL:</label>
+					<input type="text" style="line-height: 50px;width:40%;" placeholder="Enter YouTube Link...">
+					<a href="#"><i class="fa fa-plus-square-o" onclick="addNewSong()" style="font-size: 35px; vertical-align: middle;"></i></a>
 				</form>
 			</div>
-			<a href="#"><i class="fa fa-plus-square-o" onclick="addNewSong()" style="font-size: 35px; vertical-align: middle;"></i></a>
+			
 		</center>
 
 		<center class="center-container" style="padding-top: 10px; padding-bottom: 10px;">
@@ -106,7 +110,7 @@
 
 			<center>
 				<a class="a icon" href="Home.html"><i class="fa fa-home" style="font-size: 50px; padding: 15px;"></i></a>
-				<a class="a icon" href="Playlists.html"><i class="fa fa-music" style="font-size: 50px; padding: 15px;"></i></a>
+				<a class="a icon" href="Playlists.html"><i class="fa fa-music" style="font-size: 50px; padding: 15px; color: #4656ea"></i></a>
 				<a class="a icon" href="Currently Playing.html"><i class="fa fa-volume-up" style="font-size: 50px; padding: 15px;"></i></a>
 			</center>
 		</div>

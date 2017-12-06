@@ -99,7 +99,7 @@ a.box:link, a.box:visited {
 }
 
 a.icon:hover, a.box:active {
-    color: #283e3e;
+    color: #8ba0a0;
 }
 
 a:link, a:visited {
@@ -112,7 +112,7 @@ a:link, a:visited {
 }
 
 a:hover, a:active {
-	color: #283e3e;  
+	color: #8ba0a0;  
 }
 
 .nav {
@@ -174,6 +174,26 @@ a:hover, a:active {
   display: inline-block;   
  }
   
+ input, select {
+  height: 50px;
+  width: 87%;
+  max-width: 500px;
+  line-height: 50px;
+  
+  border: 2px solid white;
+  border-radius: 6px;
+  background-color: #141f1f;
+
+  padding: 0px 15px;
+  margin: 3px;
+  
+  font-family: arial;
+  color: white;
+
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+} 
   
 .vertical-menu {
   height: 230px;

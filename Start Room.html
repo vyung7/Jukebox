@@ -1,33 +1,51 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	</head>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<body>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Codystar' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Lobster Two' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Marvel' rel='stylesheet'>
+</head>
+
+<body>
+	<section class="container header">
 		<h1>JUKEBOX</h1>
-		<h2>Start a Room</h2>
+		<h2>Start a Room</h2>		
+	</section>
 
-		<center style="font-family: arial;color: white;font-size=20px; padding-left: 50px">
-				<form action="/action_page.php"> 
-					<label>Party Name: </label>
-					<input type="text" style="line-height: 50px; width:40%;" placeholder="Enter Party Name...">
-				</form>
-		</center>
-		
-		<center style="font-family: arial;color: white;font-size=20px;"> 
-				<form action="/action_page.php"> 
-					<label>Num. Votes to Skip:</label>
-					<input type="text" style="line-height: 50px;width:37%;" placeholder="Enter Number of Votes to Skip...">
-				</form>
-		</center>
+	<section class="container list form-list">
+		<ul>
+			<form action="/action_page.php">
+			<li>
+				<label>Party Name:</label>
+				<input type="text" placeholder="Enter Party Name">
+			</li>
+			</form>
+			<form action="/action_page.php">
+			<li>
+				<label>Num. Votes to Skip:</label>
+				<input type="text" placeholder="1">
+			</li>
+			</form>
+		</ul>
+	</section>
 
-
-		<center>
-			<!-- <div class="hRegbox">
+	<section class="container list item-list">
+		<ul>
+			<li>
+				<a class="item" href="Create Playlist.php">Start a New Playlist<i class="fa fa-angle-right"></i></a>
+			</li>
+			<li>
+				<a class="item" href="Playlists.php">From Existing Playlist<i class="fa fa-angle-right"></i></a>
+			</li>
+		</ul>
+	</section>
+	<center>
+		<!-- <div class="hRegbox">
 				<form action="/action_page.php"> 
 					Party Name: <input type="text" style="width: 64%;">
 				</form>
@@ -40,17 +58,18 @@
 				</form>
 			</div>
 			</br> -->
-			 
-			<a class="a hBox" style="margin-top: 30px" href="Currently Playing.html">Start a New Playlist<i class="fa fa-angle-right" style="font-size: 30px; float: right;"></i></a>
-			<a class="a hBox" href="Playlists.html">From Existing Playlist<i class="fa fa-angle-right" style="font-size: 30px; float: right;"></i></a>
+
+		
+		
+	</center>
+
+	<section class="container nav">
+		<center>
+			<a class="icon" href="Home.html"><i class="fa fa-home" style="font-size: 50px; padding: 15px;"></i></a>
+			<a class="icon" href="Playlists.php"><i class="fa fa-music" style="font-size: 50px; padding: 15px;"></i></a>
+			<a class="icon" href="CurrentlyPlaying.php"><i class="fa fa-volume-up" style="font-size: 50px; padding: 15px;"></i></a>
 		</center>
-	    
-		<div class="nav">
-			<center>
-				<a class="a icon" href="Home.html"><i class="fa fa-home" style="font-size: 50px; padding: 15px;"></i></a>
-				<a class="a icon" href="Playlists.html"><i class="fa fa-music" style="font-size: 50px; padding: 15px;"></i></a>
-				<a class="a icon" href="Currently Playing.html"><i class="fa fa-volume-up" style="font-size: 50px; padding: 15px;"></i></a>
-			</center>
-		</div>
-	</body>
+	</section>
+</body>
+
 </html>

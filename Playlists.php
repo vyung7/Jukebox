@@ -23,14 +23,14 @@ $bottom = <<<BOTTOM
 </center>
 
 <center>
-	<a class="a hBox" href="Edit Playlist.html" style="margin-top:30px">Liked Songs<i class="fa fa-angle-right" style="font-size: 30px; float: right;"></i></a>
+	<a class="a hBox" href="Edit Playlist.php" style="margin-top:30px">Liked Songs<i class="fa fa-angle-right" style="font-size: 30px; float: right;"></i></a>
 </center>
 
-<section class="container nav">
+	<section class="container nav">
 		<center>
-			<a class="icon" href="Home.html"><i class="fa fa-home"></i></a>
-			<a class="icon" href="Playlists.php"><i class="fa fa-music" style="color: #FFFFFF;"></i></a>
-			<a class="icon" href="CurrentlyPlaying.php"><i class="fa fa-volume-up"></i></a>
+			<a class="icon" href="Home.html"><i class="fa fa-home" ></i></a>
+			<a class="icon" href="Playlists.php"><i class="fa fa-list" style="color: #FFFFFF;"></i></a>
+			<a class="icon" href="Currently Playing.php"><i class="fa fa-play"></i></a>
 		</center>
 	</section>
 </body>

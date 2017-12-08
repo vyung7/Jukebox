@@ -24,20 +24,20 @@
 				var currCount = songCount;
 				var icon = document.createElement('i');
 				icon.className ="fa fa-reorder";
-				icon.style = "color:white; font-size: 18px; padding-right:5px";
+				icon.style = "color:black; font-size: 20px; padding-right:5px";
 				icon.id = "icon" + currCount;
 
 				var box = document.createElement('div');
 				var listItem = document.createElement('li');
 
-				box.className = "regbox";
+				box.className = "list-item-container";
 				var node = document.createTextNode("Song" + currCount);
 				box.appendChild(node);
 				listItem.id = "song" + currCount
 				var close = document.createElement('i');
 				close.className = "fa fa-close";
-				close.style="font-size: 15px;float: right;";
 				close.id = "delete";
+				close.style = "position: absolute; right: 20px; line-height: 50px";
 				close.onclick = function() {removeSong(currCount)};
 
 				box.appendChild(close);
@@ -78,41 +78,27 @@
 				<li>
 					<label>Name:</label>
 					<input type="text" placeholder="Enter Playlist Name">
+					<a class="icon-button" onclick="removePlaylist()">
+                        <i class="fa fa-trash-o"></i>
+                    </a>
 				</li>
 				</form>
 				<form action="/action_page.php">
 				<li>
 					<label>URL:</label>
 					<input type="text" placeholder="Enter Youtube URL">
+					<a class="icon-button" onclick="addNewSong()">
+                        <i class="fa fa-plus-square-o"></i>
+                    </a>
 				</li>
 				</form>
 			</ul>
 		</section>
 
-
-		<center>Name:
-			<div class="regbox" style="line-height: 50px; width:38%;">
-				<form action="/action_page.php">
-					<input type="text" style="width: 98%;" value="Enter Playlist Name">
-				</form>
-			</div>
-			<!-- Update onclick function -->
-			<a href="#"><i class="fa fa-trash-o" onclick="removePlaylist()" style="font-size: 35px; vertical-align: middle; color: #606060;"></i></a>
-		</center>
-
-		<center>URL:
-			<div class="regbox" style="line-height: 50px;width:40%;">
-				<form action="/action_page.php">
-					<input type="text" style="width: 98%;" value="Enter YouTube Link">
-				</form>
-			</div>
-			<a href="#"><i class="fa fa-plus-square-o" onclick="addNewSong()" style="font-size: 35px; vertical-align: middle; color: #606060;"></i></a>
-		</center>
-
-		<center class="center-container" style="padding-top: 10px; padding-bottom: 10px;">
+		<section class="container list item-list">
 			<ul id="addNew">
 			</ul>
-		</center>
+		</section>
 
 		<section class="container nav">
 			<center style="background-color: #D0EAFF; padding-bottom: 10px; padding-top: 10px;">
@@ -121,9 +107,9 @@
 			</center>
 
 			<center>
-				<a class="a icon" href="Home.html"><i class="fa fa-home" style="font-size: 50px; padding: 15px;"></i></a>
-				<a class="a icon" href="Playlists.php"><i class="fa fa-music" style="font-size: 50px; padding: 15px;"></i></a>
-				<a class="a icon" href="CurrentlyPlaying.php"><i class="fa fa-volume-up" style="font-size: 50px; padding: 15px;"></i></a>
+				<a class="icon" href="Home.html"><i class="fa fa-home"></i></a>
+				<a class="icon" href="Playlists.php"><i class="fa fa-list"></i></a>
+				<a class="icon" href="Currently Playing.php"><i class="fa fa-play"></i></a>
 			</center>
 		</section>
 	</body>

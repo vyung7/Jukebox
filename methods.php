@@ -63,7 +63,7 @@ function getSongs($db, $playlist){
         $result->close();
         return $output;
     }else{
-        echo "Couldn't get songs from $playlist".$db->error;
+        // echo "Couldn't get songs from $playlist".$db->error;
     }
 }
 

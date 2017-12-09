@@ -1,6 +1,10 @@
 <?php
 require("methods.php");
-$onload = "";
+$onload = "addNewSong(songs[0]);
+            addNewSong(songs[1]);
+            addNewSong(songs[2]);
+            addNewSong(songs[3]);
+            addNewSong(songs[4]);";
 $db = connect();
 $pName = "Sample Playlist";
 
@@ -29,6 +33,13 @@ $body = <<<BODY
             <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
             <script>
                 var player;
+                var songs = ["BTS (防弾少年団) 'MIC Drop -Japanese ver.-' Official MV",
+                        "BTS (방탄소년단) 'DNA' Official MV",
+                         "BTS (방탄소년단) 'Not Today' Official MV",
+                          "BTS (방탄소년단) '피 땀 눈물 (Blood Sweat & Tears)' Official MV",
+                          "[MV] BTS(방탄소년단) _ FIRE (불타오르네)"
+                         ];
+
                 window.onload = function(){
                     $onload
                 }
@@ -89,7 +100,7 @@ $body = <<<BODY
 
             	var songCount =0;
                 function addSong(){
-                    var song = prompt("URL", "Enter YouTube Link");
+                    var song = prompt("URL:", "Enter YouTube URL");
                     addNewSong(song);
                 }
             	function addNewSong(song) {
@@ -109,15 +120,9 @@ $body = <<<BODY
                         heartIcon.onclick = function() {toggleColor(heartIcon, "#f4428f")};
                         box.appendChild(heartIcon);
 
-                        var node = document.createTextNode("Song" + currCount);
+                        // var node = document.createTextNode("Song" + currCount);
+                        var node = document.createTextNode(song);
                         box.appendChild(node);
-
-                        var downIcon = document.createElement('i');
-                        downIcon.className="fa fa-angle-double-down";
-                        downIcon.style="color: black; font-size: 35px; position: absolute; right: 40px; line-height: 50px;";
-                        downIcon.id = "down" + currCount;
-                        downIcon.onclick = function() {toggleColor(downIcon, "red")};
-                        box.appendChild(downIcon);
 
                         var upIcon = document.createElement('i');
                         upIcon.className="fa fa-angle-double-up";
@@ -125,6 +130,13 @@ $body = <<<BODY
                         upIcon.id = "up" + currCount;
                         upIcon.onclick = function() {toggleColor(upIcon, "green")};
                         box.appendChild(upIcon);
+
+                        var downIcon = document.createElement('i');
+                        downIcon.className="fa fa-angle-double-down";
+                        downIcon.style="color: black; font-size: 35px; position: absolute; right: 40px; line-height: 50px;";
+                        downIcon.id = "down" + currCount;
+                        downIcon.onclick = function() {toggleColor(downIcon, "red")};
+                        box.appendChild(downIcon);
 
                         listItem.appendChild(box)
                         var element = document.getElementById("addNew");
@@ -151,11 +163,10 @@ $body = <<<BODY
 					
         	<section class="container list item-list">
                 <ul>
-                <li>
-                    <div data-video="pCdWnY4Dn2w" data-autoplay="1" data-loop="1" id="youtube-audio"></div>
-                    <span>BTS (防弾少年団) 'MIC Drop -Japanese ver.-' Official MV</span>
-                    <a class="icon-button"><i class="fa fa-close"></i></a>
-                </li>
+                    <li>
+                        <div data-video="pCdWnY4Dn2w" data-autoplay="0" data-loop="1" id="youtube-audio"></div>
+                        <span>BTS (防弾少年団) 'MIC Drop -Japanese ver.-' Official MV</span>
+                    </li>
                 </ul>
             </section>
 

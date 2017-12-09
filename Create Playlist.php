@@ -18,7 +18,14 @@
 			});
 		</script>
 		<script>
-			var songCount = 0;
+			var songs = ["BTS (防弾少年団) 'MIC Drop -Japanese ver.-' Official MV",
+						"BTS (방탄소년단) 'DNA' Official MV",
+						 "BTS (방탄소년단) 'Not Today' Official MV",
+						  "BTS (방탄소년단) '피 땀 눈물 (Blood Sweat & Tears)' Official MV",
+						  "[MV] BTS(방탄소년단) _ FIRE (불타오르네)"
+						 ];
+
+			var songCount = -1;
 			function addNewSong() {
 				songCount = songCount + 1;
 				var currCount = songCount;
@@ -26,12 +33,11 @@
 				icon.className ="fa fa-reorder";
 				icon.style = "color:black; font-size: 20px; padding-right:5px";
 				icon.id = "icon" + currCount;
-
 				var box = document.createElement('div');
 				var listItem = document.createElement('li');
-
 				box.className = "list-item-container";
-				var node = document.createTextNode("Song" + currCount);
+				// var node = document.createTextNode("Song" + currCount);
+				var node = document.createTextNode(songs[currCount])
 				box.appendChild(node);
 				listItem.id = "song" + currCount
 				var close = document.createElement('i');
@@ -39,7 +45,6 @@
 				close.id = "delete";
 				close.style = "position: absolute; right: 20px; line-height: 50px";
 				close.onclick = function() {removeSong(currCount)};
-
 				box.appendChild(close);
 				listItem.appendChild(icon);
 				listItem.appendChild(box);

@@ -95,8 +95,8 @@ $body = <<<BODY
 
 	<body>
 		<section class="container header">
-			<h1>$pName</h1>
-			<h2>Edit Playlist</h2>
+			<h1>JUKEBOX</h1>
+			<h2>Edit Playlist - $pName</h2>
 		</section>
 
 		<section class="container list form-list">

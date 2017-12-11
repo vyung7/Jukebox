@@ -32,37 +32,40 @@ $body = <<<BODY
 
             <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
             <script>
+                var count = 0;
                 var player;
                 var songs = ["BTS (防弾少年団) 'MIC Drop -Japanese ver.-' Official MV",
-                        "BTS (방탄소년단) 'DNA' Official MV",
-                         "BTS (방탄소년단) 'Not Today' Official MV",
-                          "BTS (방탄소년단) '피 땀 눈물 (Blood Sweat & Tears)' Official MV",
-                          "[MV] BTS(방탄소년단) _ FIRE (불타오르네)"
-                         ];
+                             "BTS (방탄소년단) 'DNA' Official MV",
+                             "BTS (방탄소년단) 'Not Today' Official MV",
+                             "BTS (방탄소년단) '피 땀 눈물 (Blood Sweat & Tears)' Official MV",
+                             "[MV] BTS(방탄소년단) _ FIRE (불타오르네)"
+                            ];
+                var videoList = ['a8c5wmeOL9o', '2lzXpOF5Ssg'];
 
                 window.onload = function(){
                     $onload
                 }
-                function onYouTubeIframeAPIReady() {
 
+                function onYouTubeIframeAPIReady() {
                     var ctrlq = document.getElementById("youtube-audio");
                     ctrlq.innerHTML = '<img id="youtube-icon" style="height:30px; vertical-align:middle; align: center;" src=""/><div id="youtube-player"></div>';
                     ctrlq.style.cssText = 'cursor:pointer;cursor:hand;display:none';
                     ctrlq.onclick = toggleAudio;
 
                     player = new YT.Player('youtube-player', {
-                    height: '0',
-                    width: '0',
-                    //  videoId: ctrlq.dataset.video,
-                    playerVars: {
-                        autoplay: ctrlq.dataset.autoplay,
-                        loop: ctrlq.dataset.loop,
-                        list: 'PL_Cqw69_m_yzbMVGvQA8QWrL_HdVXJQX7',
-                        listType: 'playlist',
-                    },
-                    events: {
-                        'onReady': onPlayerReady,
-                        'onStateChange': onPlayerStateChange
+                        height: '0',
+                        width: '0',
+                        //  videoId: ctrlq.dataset.video,
+                        playerVars: {
+                            autoplay: ctrlq.dataset.autoplay,
+                            loop: ctrlq.dataset.loop,
+                            // listType: 'playlist',
+                            // list: 'PL_Cqw69_m_yzbMVGvQA8QWrL_HdVXJQX7',      //BTS           
+                            // list: 'PLnsTUgMW5W__4eI0349Lu64ljXsrRjhwJ'        
+                        },
+                        events: {
+                            'onReady': onPlayerReady,
+                            'onStateChange': onPlayerStateChange
                         }
                     });
                 }
@@ -87,6 +90,24 @@ $body = <<<BODY
                 }
 
                 function onPlayerReady(event) {
+                    // player.loadPlaylist({
+                    //     'list': 'PLnsTUgMW5W__4eI0349Lu64ljXsrRjhwJ',
+                    //     'listType': 'playlist',
+                    //     'index': 0,
+                    //     'startSeconds': 0,
+                    //     'suggestedQuality': 'hd1080'
+                    // });
+
+                    // player.loadPlaylist({
+                    //     listType: 'playlist',
+                    //     list: 'PLnsTUgMW5W__4eI0349Lu64ljXsrRjhwJ',
+                    //     // list:['a8c5wmeOL9o', '2lzXpOF5Ssg'], 
+                    //     index: 0,
+                    //     startSeconds: 0,
+                    //     suggestedQuality: 'small'
+                    // });
+                    
+                    player.loadVideoById(videoList[count]);
                     player.setPlaybackQuality("small");
                     document.getElementById("youtube-audio").style.display = "inline-block";
                     togglePlayButton(player.getPlayerState() !== 5);
@@ -94,18 +115,21 @@ $body = <<<BODY
 
                 function onPlayerStateChange(event) {
                     if (event.data === 0) {
-                        togglePlayButton(false);
+                        count++;
+                        // togglePlayButton(false);
+                        player.loadVideoById(videoList[count]);
                     }
                 }
 
-            	var songCount =0;
+            	var songCount = 0;
                 function addSong(){
                     var song = prompt("URL:", "Enter YouTube URL");
                     addNewSong(song);
                 }
+
             	function addNewSong(song) {
                     if (song != null && song != "") {
-                        songCount = songCount +1;
+                        songCount = songCount + 1;
                         var currCount = songCount;
                         var box = document.createElement('div');
                         var listItem = document.createElement('li');
@@ -160,11 +184,11 @@ $body = <<<BODY
 				<h1>JUKEBOX</h1>
 				<h2>Currently Playing</h2>	
 			</section>
-					
-        	<section class="container list item-list">
+			
+           	<section class="container list item-list">
                 <ul>
                     <li>
-                        <div data-video="pCdWnY4Dn2w" data-autoplay="0" data-loop="1" id="youtube-audio"></div>
+                        <div data-video="pCdWnY4Dn2w" data-autoplay="1" data-loop="1" id="youtube-audio"></div>
                         <span>BTS (防弾少年団) 'MIC Drop -Japanese ver.-' Official MV</span>
                     </li>
                 </ul>

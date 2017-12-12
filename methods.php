@@ -101,5 +101,5 @@ function genPage($title, $body){
     $body
     </html>";
 }
-
 ?>
+

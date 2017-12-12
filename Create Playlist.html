@@ -1,111 +1,39 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="style.css">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-		<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-		<script>
-			$(function() {
-				$( "#sortable-1" ).sortable();
-				$( "#addNew" ).sortable();
-			});
-		</script>
-		<script>
-			var songCount = 0;
-			function addNewSong() { 
-				songCount = songCount + 1;
-				var currCount = songCount;
-				var icon = document.createElement('i');
-				icon.className ="fa fa-reorder";
-				icon.style = "color:white; font-size: 18px; padding-right:5px";
-				icon.id = "icon" + currCount;
-				var box = document.createElement('div');
-				var listItem = document.createElement('li');
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
 
-				box.className = "regbox";   
-				box.style = "font-size: 16px;";
-
-				var node = document.createTextNode("Song Title " + currCount + " - Artist Name");
-
-				box.appendChild(node);
-				listItem.id = "song" + currCount			
-				var close = document.createElement('i');
-				close.className = "fa fa-close";
-				close.style="font-size: 15px;float: right;";
-				close.id = "delete";
-				close.onclick = function() {removeSong(currCount)};
-
-				box.appendChild(close);
-				listItem.appendChild(icon);
-				listItem.appendChild(box);
-				var element = document.getElementById("addNew");
-				element.appendChild(listItem);
-			}
-			
-			function removeSong(songCount) {
-				var parent = document.getElementById("addNew");
-
-				var child = document.getElementById("song"+ songCount);
-				var iconChild = document.getElementById("icon"+ songCount);
-
-				parent.removeChild(child);
-				parent.removeChild(iconChild);
-			}
-
-			function removePlaylist() {
-				if (confirm("Are you sure you want to delete this playlist?")) {
-					window.location.href = "Home.html"
-					//will remove all instances of playlist
-				} 
-			}
-		</script>
-	</head>
-
-	<body>
+<body>
+	<section class="container header">
 		<h1>JUKEBOX</h1>
 		<h2>Create Playlist</h2>
+	</section>
 
-		<center style="font-family: arial;color: white;font-size=20px;">
-				<form action="/action_page.php"> 
-					<label> Name:</label>
-					<input type="text" style="width: 98%; line-height: 50px; width:38%; margin-right: 5%;" placeholder="Enter Playlist Name...">
-					<!--
-					<a href="#"><i class="fa fa-trash-o" onclick="removePlaylist()" style="font-size: 35px; vertical-align: middle;"></i></a>
-				-->
-				</form>
+	<section class="container list form-list">
+		<form action="AddPlaylist.php" method="GET">
+			<ul>
+				<li>
+					<label>Party Name:</label>
+					<input type="text" name="playlistName" value="Enter Playlist Name">
+				</li>
+				<li>
+					<input type="submit" value="Create Playlist">
+				</li>
+		</form>
+	</section>
+
+	<section class="container nav">
+		<center>
+			<a class="icon" href="Home.html"><i class="fa fa-home"></i></a>
+			<a class="icon" href="Playlists.php"><i class="fa fa-list"></i></a>
+			<a class="icon" href="Currently Playing.php"><i class="fa fa-play"></i></a>
 		</center>
-		
-		<center style="font-family: arial;color: white;font-size=20px;">  
-			<div>
-				<form action="/action_page.php"> 
-					<label> URL:</label>
-					<input type="text" style="line-height: 50px;width:40%;" placeholder="Enter YouTube Link...">
-					<a href="#"><i class="fa fa-plus-square-o" onclick="addNewSong()" style="font-size: 35px; vertical-align: middle;"></i></a>
-				</form>
-			</div>
+	</section>
+</body>
 
-		</center>
-
-		<center class="center-container" style="padding-top: 10px; padding-bottom: 10px;">
-			<ul id="addNew">     
-			</ul> 
-		</center>
-
-		<div class="nav">
-			<center style="background-color: #141f1f; padding-bottom: 10px; padding-top: 10px;">
-				<a href="Playlists.html"><i class="fa fa-check-circle-o" style="font-size: 40px; "></i></a>
-				<a href="Playlists.html"><i class="fa fa-times-circle-o" style="font-size: 40px; padding-left:20px"></i></a>	
-			</center>
-
-			<center>
-				<a class="a icon" href="Home.html"><i class="fa fa-home" style="font-size: 50px; padding: 15px;"></i></a>
- 				<a class="a icon" href="Playlists.html"><i class="fa fa-music" style="font-size: 50px; padding: 15px; color: #4656ea"></i></a>
-				<a class="a icon" href="Currently Playing.html"><i class="fa fa-volume-up" style="font-size: 50px; padding: 15px;"></i></a>
-			</center>
-		</div>
-	</body>
 </html>

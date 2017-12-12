@@ -1,127 +1,177 @@
 
 body {
-	background-color: #141f1f;
+	background-color: #D0EAFF;
+	font-family: 'Marvel';
+  font-size: 20px;
+	color: #000000;
+	margin: 0;
+	text-align: center;
 }
 
-h1 {
-	font-family: arial;
-	color: white;
-	text-align: center;
+.fa.fa-home:hover {
+  color: #bc8361;
+}
+
+.fa.fa-list:hover {
+  color: #bc8361;
+}
+
+.fa.fa-play:hover {
+  color: #bc8361;
+}
+
+.container.header h1,
+.container.header h2 {
+	text-align: center;	
+}
+
+.container.header h1 {
+	font-size: 50px;
+  font-family: 'Codystar';
+}
+
+.container.header h2 {
+  font-family: 'Lobster Two';
 	font-size: 30px;
 }
 
-h2 {
-	font-family: arial;
-	color: white;
+.container.list {
 	text-align: center;
-	font-size: 20px;
+	max-width: 600px;
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+}
+
+.container.list ul {
+	list-style: none;
+	padding: 0;
+}
+
+.container.list li {
+	border: 1px solid #334e4e;
+	height: 50px;
+	margin: 0 20px;
+	position: relative;
+	background: #A5D1F3;
+	padding-left: 10px;
+	line-height: 50px;
+	text-align: left;
+}
+
+.container.list.item-list li:hover,
+.container.list li:hover a.item {
+	background: #e2e2e2;
+	color: #141f1f;
+	transition: background .1s ease-in-out, color .1s ease-in-out;
+}
+
+.container.list a.item {
+	height: 40px;
+	width: 100%;
+	color: black;
+	text-decoration: none;
+	display: inline-block;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.container.list a.item > i {
+	float: right;
+	font-size: 30px;
+	line-height: 40px;
+	padding-right: 10px;
+}
+
+.container.form-list input {
+	background: transparent;
+	width: 60%;
+	height: 100%;
+	float: right;
+	padding: 0 10px;
+	border: none;
+	font-size: 25px;
+	color: black;
+	background: #e2edff;
+  font-family: 'Marvel';
+}
+
+.container.form-list input[type="submit"] {
+	width: 100%;
+	background: #151919;
+	border-radius: 7px;
+	cursor: pointer;
+  color: white;
+}
+.container.form-list input[type="submit"]:hover {
+	background: #5c6767;
+  color: white;
+}
+
+.container.form-list input:focus {
+	outline: none;
+  color: black;
+  font-weight: bold;
+}
+
+.container.form-list label {
+	position: absolute;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.container.form-list a.icon-button {
+    position: absolute;
+    right: -40px;
+    color: #606060;
+    font-size: 35px;
+}
+
+.container.form-list input::placeholder {
+  color: gray;
+}
+
+.container.form-list form {
+  margin-bottom: 0;
+}
+
+.container.nav i {
+	font-size: 40px;
+	padding: 15px;
+	color: #606060;
 }
 
 h3 {
-	font-family: arial;
+	font-family: 'Marvel';
 	color: white;
 	text-align: center;
 	font-size: 18px;
 }
 
 b {
-	font-family: arial;
-	color: white;
+	font-family: 'Lobster Two';
+	color: black;
 	text-align: center;
 	font-size: 20px;
 }
 
 p {
-	font-family: arial;
+	font-family: 'Lobster Two';
 	font-size: 20px;
 	color: white;
 }
 
-a.hBox{
-  width: 50%;
-  line-height: 50px;
-  
-  border: 2px solid white;
-  border-radius: 6px;
-  background-color: #141f1f;
-
-  padding: 0px 15px;
-  margin: 3px;
-  
-  font-family: arial;
-  color: white;
-
-  text-align: left;
-  text-decoration: none;
-  display: inline-block;    
-}
-
-a.hBox:link, a.hBox:visited {
-  width: 50%;
-  line-height: 50px;
-  
-  border: 2px solid white;
-  border-radius: 6px;
-  background-color: #141f1f;
-
-  padding: 0px 15px;
-  margin: 3px;
-  
-  font-family: arial;
-  color: white;
-
-  text-align: left;
-  text-decoration: none;
-  display: inline-block;    
-}
-
-a.hBox:hover, a.box:active {
-    background-color: #283e3e;
-}
-
-a.box:link, a.box:visited {
-  width: 93%;
-  line-height: 50px;
-
-  border: 2px solid white;
-  border-radius: 6px;
-  background-color: #141f1f;
-
-  padding: 0px 15px;
-  margin: 3px;
-
-  font-family: arial;
-  color: white;
-
-  text-align: left;
-  text-decoration: none;
-  display: inline-block;
-}
-
-a.icon:hover, a.box:active {
-    color: #8ba0a0;
-}
-
-a:link, a:visited {
-    
-  margin: 3px;
-  color: white;
-  text-align: left;
-  text-decoration: none;
-  display: inline-block;    
-}
-
-a:hover, a:active {
-	color: #8ba0a0;  
-}
-
-.nav {
+.container.nav {
   overflow: hidden;
-  background-color: #101b1b;
+  background-color: #6194BC;
   position: fixed;
   bottom: 0;
   left: -1%;
   width: 102%;
+}
+
+.container.list.item-list .list-item-container {
+  display: inline-block;
 }
 
 .regbox{
@@ -132,12 +182,12 @@ a:hover, a:active {
   
   border: 2px solid white;
   border-radius: 6px;
-  background-color: #141f1f;
+  background-color: black;
 
   padding: 0px 15px;
   margin: 3px;
   
-  font-family: arial;
+  font-family: 'Marvel';
   color: white;
 
   text-align: left;
@@ -166,34 +216,13 @@ a:hover, a:active {
   padding: 0px 15px;
   margin: 3px;
   
-  font-family: arial;
+  font-family: 'Marvel';
   color: white;
 
   text-align: left;
   text-decoration: none;
   display: inline-block;   
  }
-  
- input, select {
-  height: 50px;
-  width: 87%;
-  max-width: 500px;
-  line-height: 50px;
-  
-  border: 2px solid white;
-  border-radius: 6px;
-  background-color: #141f1f;
-
-  padding: 0px 15px;
-  margin: 3px;
-  
-  font-family: arial;
-  color: white;
-
-  text-align: left;
-  text-decoration: none;
-  display: inline-block;
-} 
   
 .vertical-menu {
   height: 230px;
@@ -213,7 +242,7 @@ a:hover, a:active {
   border-radius: 6px;
   background-color: #141f1f;
 
-  font-family: arial;
+  font-family: 'Marvel';
   color: white;
 
   text-align: left;
@@ -280,4 +309,10 @@ a:hover, a:active {
 .center-container ul {
   height: 400px;
   display: inline-block;
+}
+
+.container.item-list a.icon-button {
+  top: 12px;
+  position: absolute;
+  right: -30px;
 }

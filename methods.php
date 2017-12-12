@@ -45,6 +45,17 @@ function addSong($db, $playlist, $link, $title){
         echo "Error getting length of playlist $playlist<br>";
         return;
     }
+
+    //Grabs the video title based on the YouTube URL passed in to this function
+    $api_key = 'AIzaSyBeULimNCbH3fmwTNFBzP2mOFnWqS9Sefo';
+    $url_parts = explode("watch?v=", "https://www.youtube.com/watch?v=rRzxEiBLQCA");
+    $videoId = $url_parts[1];
+    $api_url = 'https://www.googleapis.com/youtube/v3/videos?id='. $videoId . '&key=' . $api_key . '&fields=items(snippet(title))&part=snippet';
+    $videoTitleObject = json_decode(file_get_contents($api_url)); 
+    $videoTitle = $videoTitleObject->items[0]->snippet->title;
+
+    // echo $playlistInfo;   
+
     $query = "insert into `$playlist` values ('$link', '$title', 0, 0, $num)";
     if (!$db->query($query)){
         echo "Error adding $title to $playlist: ".$db->error."<br>";
@@ -82,9 +93,9 @@ function genPage($title, $body){
     return "<!DOCTYPE html>
     <html>
     <head>
-    	<meta name='$title' content='width=device-width, initial-scale=1'>
-    	<link rel = 'stylesheet' type = 'text/css' href = 'style.css'>
-    	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+        <meta name='$title' content='width=device-width, initial-scale=1'>
+        <link rel = 'stylesheet' type = 'text/css' href = 'style.css'>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     </head>
     <body>
     $body
